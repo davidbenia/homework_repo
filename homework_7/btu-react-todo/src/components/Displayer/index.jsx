@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles.scss";
+import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
 
 const Displayer = (props) => {
   const tasks = props.tasks;
@@ -11,8 +12,11 @@ const Displayer = (props) => {
           <React.Fragment key={`task ${idx}`}>
             <li>
               <span
+                id="Text"
                 style={
-                  task.isDone == false ? { color: "black" } : { color: "red" }
+                  task.isDone == false
+                    ? { color: "black", backgroundColor: "white" }
+                    : { color: "white", backgroundColor: "red" }
                 }
               >
                 {task.name}
@@ -21,10 +25,10 @@ const Displayer = (props) => {
             <div className="buttons">
               <div className="positionButtons">
                 <button onClick={() => props.handlers.move(idx, "up")}>
-                  ^
+                  <AiFillCaretUp />
                 </button>
                 <button onClick={() => props.handlers.move(idx, "down")}>
-                  v
+                  <AiFillCaretDown />
                 </button>
               </div>
               <button onClick={() => props.handlers.done(idx)}>Done</button>

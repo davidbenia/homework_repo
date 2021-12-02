@@ -24,7 +24,7 @@ class Input extends Component {
   pressHandler = () => {
     this.setState((state) => {
       if (state.input != "")
-        state.tasks.push({ name: state.input, isDone: false });
+        state.tasks.push({ name: state.input, isDone: false, checkbox: false });
     });
 
     this.setState(() => ({ input: "" }));
@@ -111,15 +111,17 @@ class Input extends Component {
   render() {
     return (
       <React.Fragment>
-        <button onClick={() => this.listDeleteHandler("all")}>
-          Delete All
-        </button>
-        <button onClick={() => this.listDeleteHandler("checked")}>
-          Delete Checked
-        </button>
-        <button onClick={() => this.listDeleteHandler("done")}>
-          Delete Done
-        </button>
+        <div className="listButtons">
+          <button onClick={() => this.listDeleteHandler("all")}>
+            Delete All
+          </button>
+          <button onClick={() => this.listDeleteHandler("checked")}>
+            Delete Checked
+          </button>
+          <button onClick={() => this.listDeleteHandler("done")}>
+            Delete Done
+          </button>
+        </div>
 
         <div className="Input">
           <textarea
