@@ -1,11 +1,11 @@
 import "./styles.scss";
-import Input from "../Input/index";
+import ItemList from "../ItemList";
 
 function App() {
   return (
     <div className="App">
-      <div id="Input">
-        <Input />
+      <div className="container">
+        <ItemList />
       </div>
     </div>
   );
