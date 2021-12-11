@@ -16,9 +16,9 @@ class Input extends Component {
   }
 
   changeHandler = (event) => {
-    if (event.target.value != "")
+    if (event.target.value != "") {
       this.setState(() => ({ input: event.target.value }));
-    else this.setState(() => ({ input: "" }));
+    } else this.setState(() => ({ input: "" }));
   };
 
   componentDidMount() {
@@ -31,8 +31,6 @@ class Input extends Component {
         state.input = this.target.input;
         this.handlerArgument = { idx: this.target.idx, input: state.input };
       });
-
-      this.forceUpdate();
     }
   }
 

@@ -22,20 +22,18 @@ class ItemList extends Component {
     let item = { name: name, isDone: false, checkbox: false };
 
     this.setState((state) => {
-      if (state.tasks.filter((task) => task.name == item.name).length > 0)
+      if (state.tasks.filter((task) => task.name == item.name).length > 0) {
         alert("Task already exists...");
-      else if (item.name != "") state.tasks.push(item);
+      } else if (item.name != "") {
+        state.tasks.push(item);
+      }
     });
-
-    this.forceUpdate();
   };
 
   doneHandler = (idx) => {
     this.setState((state) => {
       state.tasks[idx].isDone = state.tasks[idx].isDone ? false : true;
     });
-
-    this.forceUpdate();
   };
 
   deleteHandler = (idx) => {
@@ -50,8 +48,6 @@ class ItemList extends Component {
       state.tasks[target.idx].isDone = false;
       state.editing = !state.editing;
     });
-
-    this.forceUpdate();
   };
 
   editHelperMethod = (idx) => {
@@ -59,16 +55,12 @@ class ItemList extends Component {
       state.editing = !state.editing;
       state.target = { idx: idx, input: state.tasks[idx].name };
     });
-
-    this.forceUpdate();
   };
 
   checkHandler = (idx) => {
     this.setState((state) => {
       state.tasks[idx].checkbox = state.tasks[idx].checkbox ? false : true;
     });
-
-    this.forceUpdate();
   };
 
   positionHandler = (idx, direction) => {
@@ -77,8 +69,9 @@ class ItemList extends Component {
 
       switch (direction) {
         case "up":
-          if (idx - 1 < 0) alert("Can't move the task");
-          else {
+          if (idx - 1 < 0) {
+            alert("Can't move the task");
+          } else {
             state.tasks[idx] = state.tasks[idx - 1];
             state.tasks[idx - 1] = temp;
           }
@@ -86,8 +79,9 @@ class ItemList extends Component {
           break;
 
         case "down":
-          if (idx + 1 == state.tasks.length) alert("Can't move the task");
-          else {
+          if (idx + 1 == state.tasks.length) {
+            alert("Can't move the task");
+          } else {
             state.tasks[idx] = state.tasks[idx + 1];
             state.tasks[idx + 1] = temp;
           }
@@ -98,8 +92,6 @@ class ItemList extends Component {
           break;
       }
     });
-
-    this.forceUpdate();
   };
 
   listDeleteHandler = (mode) => {
