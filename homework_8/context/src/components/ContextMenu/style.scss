@@ -1,0 +1,25 @@
+.contextMenu{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: ghostwhite;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(#404040, 0.15);
+    height: 200px;
+    width: 200px;
+
+    .buttonContainer{
+        display: flex;
+        flex-direction: column;
+
+        .btn{
+            margin: 10px;
+            background-color: ghostwhite;
+
+            &:hover{
+                background-color: #b6b6b6;
+            }
+        }
+    }
+}
